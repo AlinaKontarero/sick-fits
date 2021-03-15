@@ -1,7 +1,11 @@
 {
   "/_app": "pages/_app.js",
-  "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/account": "pages/account.js",
-  "/": "pages/index.js"
+  "/_error": "pages/_error.js",
+  "/next/dist/pages/_error": "pages/next/dist/pages/_error.js",
+  "/": "pages/index.js",
+  "/products": "pages/products.js",
+  "/sell": "pages/sell.js",
+  "/orders": "pages/orders.js",
+  "/account": "pages/account.js"
 }
