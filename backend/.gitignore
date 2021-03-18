@@ -1,0 +1,14 @@
+node_modules/
+lerna-debug.log
+npm-debug.log
+yarn-error.log
+packages/*/dist
+.idea
+.DS_Store
+.env
+deploys
+releaseinfo.txt
+packages/panini/cypress/screenshots/
+packages/panini/cypress/videos/
+.vscode/*.code-snippets
+.vscode/*.code-workspace
