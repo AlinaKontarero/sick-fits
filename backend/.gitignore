@@ -12,3 +12,9 @@ packages/panini/cypress/screenshots/
 packages/panini/cypress/videos/
 .vscode/*.code-snippets
 .vscode/*.code-workspace
+**/logs
+*.log
+cache/
+chunks/
+webpack/
+admin/
