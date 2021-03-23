@@ -6,9 +6,11 @@ import {
   withItemData,
   statelessSessions,
 } from '@keystone-next/keystone/session';
+import { integer } from '@keystone-next/fields';
 import { User } from './schemas/User';
 import { Product } from './schemas/Product';
 import { ProductImage } from './schemas/ProductImage';
+import { insertSeedData } from './seed-data';
 
 const databaseURL =
   process.env.DATABASE_URL || 'mongodb://localhost/keystone-sick-fits-tutorial';
@@ -39,6 +41,12 @@ export default withAuth(config({
   db: {
     adapter: 'mongoose',
     url: databaseURL,
+    onConnect: async (keystone) =>  {
+      console.log('connected to db!');
+      if (process.argv.includes('--seed-data')) {
+        await insertSeedData(keystone);
+      }
+    }
     // TODO: add data seeding here
   },
   ui: {
@@ -47,7 +55,7 @@ export default withAuth(config({
       // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
       console.log(session);
       // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
-      return !!session?.data
+      return !!session?.data;
     },
   },
   lists: createSchema({
