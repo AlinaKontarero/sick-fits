@@ -40,8 +40,6 @@ export default function UpdateProduct({ id }) {
     variables: { id },
   });
 
-  console.log('data from updates: ', data);
-
   // 2. get the mutation to update the item
   const [updateProduct, mutationResponse] = useMutation(
     UPDATE_PRODUCT_MUTATION,
@@ -72,7 +70,6 @@ export default function UpdateProduct({ id }) {
             price: inputs.price,
           },
         }).catch(console.error);
-        console.log('res::: ', res);
         // @TODO: handle submit
       }}
     >
