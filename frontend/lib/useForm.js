@@ -1,8 +1,16 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 export default function useForm(initial = {}) {
   // create a state object for inputs
   const [inputs, setInputs] = useState(initial);
+  // array of initial objects: 
+  const initialValues = Object.values(initial).join('');
+
+  useEffect(() => {
+    // This fn runs when things we are watching change
+    setInputs(initial)
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [initialValues]) 
 
   function handleChange(e) {
     let { value, name, type } = e.target;
