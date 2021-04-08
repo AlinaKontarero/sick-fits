@@ -31,7 +31,7 @@ export default function SignIn() {
 
   const [signin, { loading, error, data }] = useMutation(SIGNIN_MUTATION, {
     variables: inputs,
-    refetchQUeries: [{ query: CURRENT_USER_QUERY }],
+    refetchQueries: [{ query: CURRENT_USER_QUERY }],
   });
   async function handleSubmit(e) {
     e.preventDefault();
