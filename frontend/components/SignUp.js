@@ -2,7 +2,6 @@ import gql from 'graphql-tag';
 import { useMutation } from '@apollo/client';
 import Form from './styles/Form';
 import useForm from '../lib/useForm';
-import { CURRENT_USER_QUERY } from './User';
 import DisplayError from './ErrorMessage';
 
 const SIGNUP_MUTATION = gql`
@@ -11,12 +10,10 @@ const SIGNUP_MUTATION = gql`
     $password: String!
     $name: String!
   ) {
-    authenticateUserWithPassword(email: $email, password: $password) {
-      createUser(data: { email: $email, name: $name, password: $password }) {
-        id
-        name
-        email
-      }
+    createUser(data: { email: $email, name: $name, password: $password }) {
+      id
+      name
+      email
     }
   }
 `;
