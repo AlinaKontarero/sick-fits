@@ -6,10 +6,10 @@ import {
   withItemData,
   statelessSessions,
 } from '@keystone-next/keystone/session';
-import { integer } from '@keystone-next/fields';
 import { User } from './schemas/User';
 import { Product } from './schemas/Product';
 import { ProductImage } from './schemas/ProductImage';
+import { CartItem } from './schemas/CartItem';
 import { insertSeedData } from './seed-data';
 import { sendPasswordResetEmail } from './lib/mail';
 
@@ -67,7 +67,8 @@ export default withAuth(config({
   lists: createSchema({
     User,
     Product,
-    ProductImage
+    ProductImage, 
+    CartItem
   }),
   session: withItemData(statelessSessions(sessionConfig), {
     User: 'id',
